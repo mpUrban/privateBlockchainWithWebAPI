@@ -1,5 +1,22 @@
 # js-based Private Blockchain with web API
 
+## Requirements:
+
+* Node.js installed
+* Web browser
+* Terminal (such as Git Bash)
+
+## How to run locally:
+
+After downloading this repo, start a terminal session, navigate to the directory of the downloaded repo, and run the following command:
+
+```
+node app.js
+```
+
+The web API is configured to run on port 8000, so open a web browser tab and navigate to: [localhost:8000](http://localhost:8000)
+
+
 ## Files:
 
 app.js - web API using the express.js framework
