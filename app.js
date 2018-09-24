@@ -38,17 +38,32 @@ app.get('/block/:id', async (req, res) => {
     }
 });
 
-//app.use(bodyParser.json()); // support json encoded bodies
-//app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+//body parser allows form data to be available in req.body
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-
-
+app.post('/block', async (req, res) => {
+    console.log('----------------------------');
+    console.log('Adding body data of: ' + (req.body.data));
+    if (!req.body.data) {
+        res.status(400).json({
+            "status": 400,
+            message: "Body data must not be empty"
+        })
+    }
+    else {
+        await blockchain.addBlock(new Block(req.body.data));
+        const height = await blockchain.getBlockHeight();
+        const response = await blockchain.getBlock(height);
+        res.send(response);
+    }
+});
 
 
 // redirect to home - needs to be final redirect
-app.get('*', function (req, res) {
-    res.redirect('/');
-});
+// app.get('*', function (req, res) {
+//     res.redirect('/');
+// });
 
 app.listen(port,
     () => console.log(`app listening on port ${port}!`));
