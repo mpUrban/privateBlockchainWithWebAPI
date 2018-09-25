@@ -1,10 +1,11 @@
-# js-based Private Blockchain with web API
+# js Private Blockchain with express.js Web API
 
 ## Requirements:
 
 * Node.js installed
 * Web browser
 * Terminal (such as Git Bash)
+* [Postman](https://www.getpostman.com/) (for testing)
 
 ## How to run locally:
 
@@ -19,9 +20,9 @@ The web API is configured to run on port 8000, so open a web browser tab and nav
 
 ## Files:
 
-app.js - web API using the express.js framework
-blockClass.js - block class <br>
-blockchainClass.js - blockchain class <br>
+app.js - web API app using the express.js framework <br>
+blockClass.js - block class module<br>
+blockchainClass.js - blockchain class module<br>
 levelFunctions.js - contains all functions using levelDB <br>
 privateBlockchain.js - contains loop to add blocks, corrupt blocks, and test <br>
 
@@ -40,6 +41,16 @@ chaindata_B2inv - contains 10 blocks where block 2 is invalid <br>
 * path
 * body-parser
 
-## ToDo
+## API testing
 
-validateChain() asynchronous programming needs checking
+### GET testing, view the genesis block
+With server running, navigate to [localhost:8000/block/0](http://localhost:8000/block/0)
+
+### POST testing
+
+For testing of adding blocks through http POST, the application Postman is used.  
+
+Example of testing Postman:
+![alt text][logo]
+
+[logo]: https://github.com/mpUrban/privateBlockchainWithWebAPI/blob/master/postman_POSTtest1.PNG "Postman test example"
